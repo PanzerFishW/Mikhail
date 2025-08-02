@@ -108,3 +108,115 @@ document.addEventListener('DOMContentLoaded', function() {
         e.stopPropagation();
     });
 });
+
+// Карусель отзывов
+document.addEventListener('DOMContentLoaded', function() {
+    const track = document.querySelector('.reviews-track');
+    const cards = document.querySelectorAll('.review-card');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    const dotsContainer = document.querySelector('.carousel-dots');
+    
+    let currentIndex = 0;
+    let cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(cards[0]).marginRight);
+    let visibleCards = calculateVisibleCards();
+    let isAnimating = false;
+    const animationDuration = 600; // Совпадает с CSS transition
+    
+    function calculateVisibleCards() {
+        return window.innerWidth > 992 ? 3 : window.innerWidth > 768 ? 2 : 1;
+    }
+    
+    function createDots() {
+        dotsContainer.innerHTML = '';
+        const totalDots = Math.ceil(cards.length / visibleCards);
+        
+        for (let i = 0; i < totalDots; i++) {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => !isAnimating && goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+    }
+    
+    function goToSlide(index) {
+        if (isAnimating) return;
+        
+        const maxIndex = Math.max(0, Math.ceil(cards.length / visibleCards) - 1);
+        currentIndex = Math.max(0, Math.min(index, maxIndex));
+        
+        isAnimating = true;
+        updateCarousel();
+        
+        setTimeout(() => {
+            isAnimating = false;
+        }, animationDuration);
+    }
+    
+    function updateCarousel() {
+        const maxOffset = Math.max(0, (cards.length - visibleCards) * cardWidth);
+        let offset = -currentIndex * cardWidth * visibleCards;
+        offset = Math.max(-maxOffset, Math.min(offset, 0));
+        
+        track.style.transform = `translateX(${offset}px)`;
+        
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+        });
+        
+        prevBtn.style.visibility = currentIndex === 0 ? 'hidden' : 'visible';
+        nextBtn.style.visibility = currentIndex >= Math.ceil(cards.length / visibleCards) - 1 ? 'hidden' : 'visible';
+    }
+    
+    prevBtn.addEventListener('click', () => {
+        if (!isAnimating && currentIndex > 0) {
+            currentIndex--;
+            goToSlide(currentIndex);
+        }
+    });
+    
+    nextBtn.addEventListener('click', () => {
+        const maxIndex = Math.ceil(cards.length / visibleCards) - 1;
+        if (!isAnimating && currentIndex < maxIndex) {
+            currentIndex++;
+            goToSlide(currentIndex);
+        }
+    });
+    
+    function handleResize() {
+        const newVisibleCards = calculateVisibleCards();
+        if (newVisibleCards !== visibleCards) {
+            cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(cards[0]).marginRight);
+            visibleCards = newVisibleCards;
+            createDots();
+            currentIndex = 0;
+            updateCarousel();
+        }
+    }
+    
+    window.addEventListener('resize', handleResize);
+    
+    // Инициализация
+    createDots();
+    updateCarousel();
+    
+    // Добавляем обработчик для кнопки "Все отзывы"
+    document.querySelector('.btn-all-reviews')?.addEventListener('click', () => {
+        // Здесь можно добавить переход на страницу со всеми отзывами
+        console.log('Переход на страницу всех отзывов');
+        // window.location.href = '/reviews.html';
+    });
+});
+
+// Обработчик для кнопки каталога
+document.querySelector('.btn-luxury-catalog')?.addEventListener('click', function() {
+    // Здесь можно реализовать:
+    // 1. Открытие модального окна с каталогом
+    // 2. Переход на страницу каталога
+    // 3. Плавный скролл к разделу с товарами
+    
+    console.log('Открытие каталога товаров');
+    // window.location.href = '/catalog.html';
+});

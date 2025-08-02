@@ -16,29 +16,42 @@
     <div class="container">
         <!-- Люксовая шапка -->
         <header>
-            <div class="logo fade-in">eXXXample</div>
+            <a href="index.html" class="logo fade-in">eXXXample</a>
         </header>
         
         <!-- Люксовое портфолио -->
-        <section>
-            <h2 class="section-title fade-in">НАШИ РАБОТЫ</h2>
-            <div class="portfolio">
-                <div class="portfolio-item fade-in">
-                    <div class="portfolio-image">
-                        <div>ПРЕДМЕТ 1<br>Требуется несколько фотографий</div>
-                    </div>
-                    <h3>Предмет 1</h3>
-                    <p>Эксклюзивный дизайн, ручная работа, натуральные материалы</p>
+            <section class="about-section">
+                <h2 class="section-title fade-in">ЗАГОЛОВОК</h2>
+                
+                <div class="about-content fade-in">
+                    <p>Слоган</p>
+                    
+                    <p>Перимущества:</p>
+                    <ul>
+                        <li>Перимущество 1</li>
+                        <li>Перимущество 2</li>
+                        <li>Перимущество 3</li>
+                        <li>Перимущество 4</li>
+                    </ul>
                 </div>
                 
-                <div class="portfolio-item fade-in delay-1">
-                    <div class="portfolio-image">
-                        <div>ПРЕДМЕТ 2<br>Требуется несколько фотографий</div>
+                <div class="about-features">
+                    <div class="feature-item fade-in">
+                        <h3>3 Года</h3>
+                        <p>Гарантии на продукты</p>
                     </div>
-                    <h3>Предмет 2</h3>
-                    <p>Итальянская кожа, французский шелк, индивидуальный пошив</p>
+                    
+                    <div class="feature-item fade-in delay-1">
+                        <h3>100%</h3>
+                        <p>Ручная работа</p>
+                    </div>
+                    
+                    <div class="feature-item fade-in delay-2">
+                        <h3>24/7</h3>
+                        <p>Поддержка клиентов</p>
+                    </div>
                 </div>
-            </div>
+            </section>
             
             <section>
                 <h2 class="section-title fade-in">ВЕШАЛКИ ДЛЯ ГАРДЕРОБА: БЕЖЕВЫЙ</h2>
@@ -138,12 +151,15 @@
                 </div>
             </div>
 
-        <!-- Люксовый калькулятор стоимости -->
-        <section>
-            <div class="calculator fade-in delay-2">
-                <h3>Ответьте на 5 вопросов и узнайте стоимость</h3>
-                <p>Мы создадим для вас эксклюзивную мебель премиум-класса, учитывая все ваши пожелания. Наши дизайнеры предложат уникальные решения, а мастера воплотят их с безупречным качеством.</p>
-                <button class="btn">Узнать стоимость</button>
+        <section class="catalog-cta">
+            <div class="luxury-catalog-box fade-in">
+                <h3>ИЩЕТЕ ИДЕАЛЬНОЕ РЕШЕНИЕ ДЛЯ ВАШЕГО ГАРДЕРОБА?</h3>
+                <div class="divider-gold"></div>
+                <p class="luxury-text">Откройте для себя мир элитной мебели в нашем эксклюзивном каталоге. Каждое изделие — это синтез итальянского дизайна, немецкого качества и ручной работы русских мастеров.</p>
+                <button class="btn btn-luxury-catalog">
+                    <span class="btn-text">ОТКРЫТЬ КАТАЛОГ</span>
+                    <span class="btn-icon">→</span>
+                </button>
             </div>
         </section>
         
@@ -185,54 +201,77 @@
         <div class="container">
             <h2 class="section-title fade-in">ОТЗЫВЫ НАШИХ КЛИЕНТОВ</h2>
             
-            <div class="reviews-grid">
-                <div class="review-card fade-in">
-                    <div class="review-header">
-                        <div class="review-author">Анна К.</div>
-                        <div class="review-rating">★★★★★</div>
+            <div class="reviews-carousel">
+                <div class="reviews-track">
+                    <!-- Отзыв 1 -->
+                    <div class="review-card fade-in">
+                        <div class="review-header">
+                            <div class="review-author">Анна К.</div>
+                            <div class="review-rating">★★★★★</div>
+                        </div>
+                        <div class="review-content">
+                            <p>Заказывала гардеробную систему в бежевых тонах. Результат превзошел все ожидания! Качество материалов и исполнения на высочайшем уровне. Каждый элемент продуман до мелочей. Спасибо за профессионализм!</p>
+                        </div>
+                        <div class="review-date">15 мая 2025</div>
                     </div>
-                    <div class="review-content">
-                        <p>Заказывала гардеробную систему в бежевых тонах. Результат превзошел все ожидания! Качество материалов и исполнения на высочайшем уровне. Каждый элемент продуман до мелочей. Спасибо за профессионализм!</p>
+                    
+                    <!-- Отзыв 2 -->
+                    <div class="review-card fade-in">
+                        <div class="review-header">
+                            <div class="review-author">Дмитрий С.</div>
+                            <div class="review-rating">★★★★★</div>
+                        </div>
+                        <div class="review-content">
+                            <p>Работал с многими мебельными компаниями, но такой уровень сервиса встретил впервые. Персональный менеджер сопровождал на всех этапах, дизайнер предложил нестандартное решение для моей квартиры.</p>
+                        </div>
+                        <div class="review-date">3 апреля 2025</div>
                     </div>
-                    <div class="review-date">15 мая 2025</div>
-                    <div class="review-image">
-                        <img src="images/review-1.jpg" alt="Отзыв Анны К." loading="lazy">
+                    
+                    <!-- Отзыв 3 -->
+                    <div class="review-card fade-in">
+                        <div class="review-header">
+                            <div class="review-author">Елена В.</div>
+                            <div class="review-rating">★★★★☆</div>
+                        </div>
+                        <div class="review-content">
+                            <p>Очень довольна качеством вешалок для гардероба. Единственное - сроки изготовления немного затянулись, но результат того стоил. Материалы действительно премиальные, чувствуется ручная работа.</p>
+                        </div>
+                        <div class="review-date">22 марта 2025</div>
+                    </div>
+                    
+                    <!-- Отзыв 4 -->
+                    <div class="review-card fade-in">
+                        <div class="review-header">
+                            <div class="review-author">Михаил П.</div>
+                            <div class="review-rating">★★★★★</div>
+                        </div>
+                        <div class="review-content">
+                            <p>Заказал кабинетный гарнитур из массива ореха. Прекрасная работа! Все детали идеально подогнаны, фурнитура высшего класса. Особенно впечатлило внимание к деталям - даже внутренние поверхности обработаны безупречно.</p>
+                        </div>
+                        <div class="review-date">10 февраля 2025</div>
+                    </div>
+                    
+                    <!-- Отзыв 5 -->
+                    <div class="review-card fade-in">
+                        <div class="review-header">
+                            <div class="review-author">Ольга Т.</div>
+                            <div class="review-rating">★★★★★</div>
+                        </div>
+                        <div class="review-content">
+                            <p>Сотрудничаем с MЕВЕLEVV уже второй раз. В этот раз заказывали мебель для гостиной. Как и в прошлый раз - безупречное качество, точные сроки и индивидуальный подход. Рекомендую всем, кто ценит настоящее качество!</p>
+                        </div>
+                        <div class="review-date">5 января 2025</div>
                     </div>
                 </div>
                 
-                <div class="review-card fade-in delay-1">
-                    <div class="review-header">
-                        <div class="review-author">Дмитрий С.</div>
-                        <div class="review-rating">★★★★★</div>
-                    </div>
-                    <div class="review-content">
-                        <p>Работал с многими мебельными компаниями, но такой уровень сервиса встретил впервые. Персональный менеджер сопровождал на всех этапах, дизайнер предложил нестандартное решение для моей квартиры.</p>
-                    </div>
-                    <div class="review-date">3 апреля 2025</div>
-                    <div class="review-image">
-                        <img src="images/review-2.jpg" alt="Отзыв Дмитрия С." loading="lazy">
-                    </div>
-                </div>
+                <button class="carousel-btn prev-btn" aria-label="Предыдущий отзыв">‹</button>
+                <button class="carousel-btn next-btn" aria-label="Следующий отзыв">›</button>
                 
-                <div class="review-card fade-in delay-2">
-                    <div class="review-header">
-                        <div class="review-author">Елена В.</div>
-                        <div class="review-rating">★★★★☆</div>
-                    </div>
-                    <div class="review-content">
-                        <p>Очень довольна качеством вешалок для гардероба. Единственное - сроки изготовления немного затянулись, но результат того стоил. Материалы действительно премиальные, чувствуется ручная работа.</p>
-                    </div>
-                    <div class="review-date">22 марта 2025</div>
-                    <div class="review-image">
-                        <img src="images/review-3.jpg" alt="Отзыв Елены В." loading="lazy">
-                    </div>
-                </div>
-                
+                <div class="carousel-dots"></div>
             </div>
             
             <div class="reviews-cta fade-in delay-2">
-                <button class="btn btn-review">Оставить отзыв</button>
-                <button class="btn btn-more">Все отзывы</button>
+                <button class="btn btn-all-reviews">Все отзывы</button>
             </div>
         </div>
     </section>
@@ -272,15 +311,21 @@
 
 
     <div class="order-menu">
-        <button class="order-toggle">Заказать</button>
+        <button class="order-toggle">
+            <span class="order-icon">✉️</span>
+            <span class="order-text">Консультация</span>
+        </button>
         <div class="order-dropdown">
-            <h4>Выберите тип мебели</h4>
-            <ul>
-                <li><a href="#wardrobe">Гардеробные системы</a></li>
-                <li><a href="#hangers">Вешалки для гардероба</a></li>
-                <li><a href="#custom">Индивидуальный заказ</a></li>
-            </ul>
-            <button class="btn btn-order">Оставить заявку</button>
+            <h4>ЭКСКЛЮЗИВНОЕ ПРЕДЛОЖЕНИЕ</h4>
+            <p>Оставьте контакты и наш дизайнер подготовит для вас индивидуальное решение в течение 24 часов</p>
+            <button class="btn btn-order" onclick="window.location.href='order.html'">
+                <span class="btn-icon">→</span>
+                Получить консультацию
+            </button>
+            <div class="order-contacts">
+                <p>Или свяжитесь сейчас:</p>
+                <a href="tel:+79991234567" class="order-phone">+7 (999) 123-45-67</a>
+            </div>
         </div>
     </div>
 </body>
