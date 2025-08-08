@@ -267,6 +267,61 @@ header {
     left: 100%;
 }
 
+/* Стили для описания продукта */
+.product-description {
+    max-width: 800px;
+    margin: 0 auto 50px;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.product-features {
+    text-align: left;
+    margin: 40px 0;
+    padding: 0 20px;
+}
+
+.product-features ul {
+    list-style: none;
+    margin: 20px 0 40px;
+    padding-left: 20px;
+}
+
+.product-features ul li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+}
+
+.product-features ul li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 1.8rem;
+    line-height: 1;
+}
+
+.product-conclusion {
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--charcoal);
+    margin-top: 30px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .product-description {
+        padding: 0 15px;
+    }
+    
+    .product-features {
+        padding: 0;
+    }
+}
+
 /* Люксовый FAQ */
 .faq-container {
     max-width: 900px;
