@@ -1,4 +1,4 @@
-/* Основные стили для страницы заказа */
+/* order.css - Основные стили для страницы заказа */
 .order-section {
     padding: 80px 0 120px;
     position: relative;
@@ -7,9 +7,9 @@
 .order-container {
     max-width: 800px;
     margin: 0 auto;
-    background: var(--cream);
+    background: var(--pure-white);
     padding: 60px;
-    border: 1px solid var(--light-taupe);
+    border: 1px solid var(--border-light);
     box-shadow: 0 20px 60px rgba(0,0,0,0.08);
     position: relative;
     overflow: hidden;
@@ -22,13 +22,13 @@
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(90deg, var(--gold), var(--dark-gold));
+    background: linear-gradient(90deg, var(--gold-primary), var(--gold-dark));
 }
 
 .order-description {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: var(--charcoal);
+    color: var(--rich-black);
     margin-bottom: 40px;
     text-align: center;
 }
@@ -48,25 +48,27 @@
 .form-group label {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    color: var(--charcoal);
+    color: var(--rich-black);
     font-size: 1rem;
 }
 
 .form-group input,
 .form-group textarea {
     padding: 15px 20px;
-    border: 1px solid var(--light-taupe);
-    background: white;
+    border: 1px solid var(--border-light);
+    background: var(--soft-white);
     font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
     transition: all 0.3s ease;
+    color: var(--rich-black);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--gold);
+    border-color: var(--gold-primary);
     box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+    background: var(--pure-white);
 }
 
 .form-group textarea {
@@ -84,41 +86,45 @@
 .checkbox-group input {
     width: 20px;
     height: 20px;
-    accent-color: var(--gold);
+    accent-color: var(--gold-primary);
 }
 
 .checkbox-group label {
     font-size: 0.95rem;
+    color: var(--rich-black);
 }
 
 .btn-submit {
     margin-top: 20px;
-    background: linear-gradient(135deg, var(--gold), var(--dark-gold));
-    color: white;
+    background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+    color: var(--pure-white);
     border: none;
     padding: 18px 45px;
     font-size: 1.1rem;
     cursor: pointer;
     transition: all 0.4s ease;
     align-self: center;
+    font-weight: 600;
+    border-radius: 4px;
 }
 
 .btn-submit:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+    color: var(--pure-white);
 }
 
 .order-contacts {
     text-align: center;
     margin-top: 60px;
     padding-top: 40px;
-    border-top: 1px solid var(--light-taupe);
+    border-top: 1px solid var(--border-light);
 }
 
 .order-contacts h3 {
     font-family: 'Playfair Display', serif;
     font-size: 1.4rem;
-    color: var(--charcoal);
+    color: var(--rich-black);
     margin-bottom: 20px;
     font-weight: 600;
 }
@@ -126,7 +132,7 @@
 .contact-phone {
     display: inline-block;
     font-size: 1.4rem;
-    color: var(--charcoal);
+    color: var(--rich-black);
     font-weight: 500;
     text-decoration: none;
     margin: 15px 0;
@@ -134,7 +140,7 @@
 }
 
 .contact-phone:hover {
-    color: var(--gold);
+    color: var(--gold-primary);
 }
 
 .contact-hours {
@@ -166,6 +172,59 @@
     display: block;
 }
 
+/* Стили для выбора мессенджера */
+.messenger-options {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.messenger-option {
+    position: relative;
+    cursor: pointer;
+}
+
+.messenger-option input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.messenger-icon {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.messenger-option input:checked + .messenger-icon {
+    border-color: var(--gold-primary);
+    background-color: rgba(212, 175, 55, 0.1);
+    color: var(--gold-primary);
+}
+
+.telegram {
+    color: #0088cc;
+}
+
+.whatsapp {
+    color: #25D366;
+}
+
+.messenger-option input:checked + .telegram {
+    color: #0088cc;
+    border-color: #0088cc;
+    background-color: rgba(0, 136, 204, 0.1);
+}
+
+.messenger-option input:checked + .whatsapp {
+    color: #25D366;
+    border-color: #25D366;
+    background-color: rgba(37, 211, 102, 0.1);
+}
+
 /* Адаптивность */
 @media (max-width: 768px) {
     .order-container {
@@ -187,5 +246,24 @@
     
     .contact-phone {
         font-size: 1.2rem;
+    }
+}
+
+/* Стили для аннотации формы */
+.form-note {
+    font-size: 0.85rem;
+    color: var(--taupe);
+    line-height: 1.6;
+    padding: 15px;
+    background-color: rgba(212, 175, 55, 0.05);
+    border-left: 3px solid var(--gold-primary);
+    margin: 15px 0 0;
+    border-radius: 0 4px 4px 0;
+}
+
+@media (max-width: 768px) {
+    .form-note {
+        font-size: 0.8rem;
+        padding: 12px;
     }
 }

@@ -1,13 +1,21 @@
-/* Люксовая цветовая палитра */
 :root {
-    --ivory: #faf7f2;
-    --cream: #f8f4e9;
-    --gold: #d4af37;
-    --light-gold: #e6d6a8;
-    --dark-gold: #b8860b;
-    --charcoal: #3c352d;
-    --taupe: #c0ab8e;
-    --light-taupe: #e8e0d5;
+    --pure-white: #ffffff; /* Абсолютно белый */
+    --soft-white: #f9f9f9; /* Для фонов */
+    --deep-black: #000000; /* Чистый черный */
+    --rich-black: #0a0a0a; /* Для текста */
+    --gold-primary: #d4af37; /* Основной золотой */
+    --gold-dark: #a78b2a; /* Темный золотой */
+    --gold-light: #e8d9a5; /* Светлый золотой */
+    --gold-accent: #ffd700; /* Яркий золотой акцент */
+    
+    /* Убираем большинство коричневых оттенков, оставляем только один */
+    --taupe: #8a7a6b; /* Нейтральный коричневый только для акцентов */
+    
+    /* Тени и границы */
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-dark: rgba(0, 0, 0, 0.15);
+    --border-light: #e0e0e0;
+    --border-gold: rgba(212, 175, 55, 0.3);
 }
 
 * {
@@ -17,11 +25,11 @@
 }
 
 body {
-    background-color: var(--ivory);
-    color: var(--charcoal);
+    background-color: var(--pure-white);
+    color: var(--rich-black);
     font-family: 'Montserrat', sans-serif;
     line-height: 1.7;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23faf7f2"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%23e8e0d5" stroke-width="0.5" stroke-opacity="0.3"/></svg>');
+    background-image: none; /* Убираем фоновый узор */
     position: relative;
     overflow-x: hidden;
 }
@@ -53,10 +61,11 @@ section {
 
 /* Люксовая шапка */
 header {
-    padding: 40px 0 20px;
+    padding: 60px 0 30px;
     text-align: center;
     position: relative;
-    overflow: hidden;
+    background-color: var(--pure-white);
+    border-bottom: 1px solid var(--border-light);
 }
 
 .logo {
@@ -64,7 +73,7 @@ header {
     font-size: 4.5rem;
     font-weight: 700;
     letter-spacing: 4px;
-    color: var(--charcoal);
+    color: var(--deep-black);
     margin-bottom: 40px;
     text-transform: uppercase;
     position: relative;
@@ -75,23 +84,23 @@ header {
 .logo:after {
     content: "";
     position: absolute;
-    bottom: -10px;
+    bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
     width: 80%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
 }
 
 .section-title {
     font-family: 'Playfair Display', serif;
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     text-align: center;
-    margin-bottom: 50px;
-    color: var(--charcoal);
+    margin-bottom: 60px;
+    color: var(--deep-black);
     position: relative;
     padding-bottom: 25px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 
 .section-title:after {
@@ -100,9 +109,9 @@ header {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px;
+    width: 120px;
     height: 3px;
-    background: linear-gradient(90deg, var(--gold), var(--dark-gold));
+    background: linear-gradient(90deg, var(--gold-primary), var(--gold-dark));
 }
 
 /* Люксовое портфолио */
@@ -177,8 +186,8 @@ header {
 
 .divider {
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--light-taupe), transparent);
-    margin: 60px auto;
+    background: linear-gradient(90deg, transparent, var(--border-gold), transparent);
+    margin: 80px auto;
     width: 70%;
 }
 
@@ -229,12 +238,12 @@ header {
 
 .btn {
     display: inline-block;
-    background: linear-gradient(135deg, var(--gold), var(--dark-gold));
-    color: var(--ivory);
-    padding: 16px 50px;
+    background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+    color: var(--pure-white);
+    padding: 18px 55px;
     text-decoration: none;
     border-radius: 0;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 1.1rem;
     border: none;
     cursor: pointer;
@@ -244,7 +253,8 @@ header {
     font-family: 'Montserrat', sans-serif;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+    border: 1px solid var(--gold-primary);
 }
 
 .btn:before {
@@ -260,7 +270,8 @@ header {
 
 .btn:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 15px 35px rgba(212, 175, 55, 0.5);
+    color: var(--gold-accent);
 }
 
 .btn:hover:before {
@@ -328,51 +339,72 @@ header {
     margin: 0 auto;
 }
 
-.faq-item {
-    margin-bottom: 35px;
-    border-bottom: 1px solid var(--light-taupe);
-    padding-bottom: 35px;
-    position: relative;
-    padding-left: 50px;
+/* Стили для аккордеона FAQ */
+.faq-accordion .faq-item {
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 15px;
 }
 
-.faq-item:last-child {
-    border-bottom: none;
+.faq-question {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 20px 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--rich-black);
+    transition: all 0.3s ease;
 }
 
-.faq-item h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
-    margin-bottom: 20px;
-    color: var(--charcoal);
-    font-weight: 600;
-    position: relative;
+.faq-question h4 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 
-.faq-item h4:before {
-    content: "Q";
-    position: absolute;
-    left: -50px;
-    top: 0;
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    color: var(--light-gold);
+.faq-question:hover h4 {
+    color: var(--gold-primary);
 }
 
-.faq-item p {
-    color: var(--charcoal);
-    line-height: 1.8;
-    font-size: 1.05rem;
-    padding-left: 20px;
-    border-left: 2px solid var(--light-gold);
+.faq-toggle {
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    color: var(--gold-primary);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease, padding 0.3s ease;
+    padding: 0 20px;
+}
+
+.faq-answer p {
+    padding: 10px 0 20px;
+    margin: 0;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+    padding: 0 20px;
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(45deg);
 }
 
 /* Обновленные стили подвала */
 .contacts {
-    background: linear-gradient(135deg, #3c352d, #5a4a42);
-    color: #e8e0d5;
-    padding: 80px 0 50px;
-    margin-top: 100px;
+    background: var(--deep-black);
+    color: var(--pure-white);
+    padding: 100px 0 60px;
+    margin-top: 120px;
     position: relative;
 }
 
@@ -383,7 +415,7 @@ header {
     left: 0;
     width: 100%;
     height: 15px;
-    background: #3c352d; /* Тёмно-коричневая линия */
+    background: linear-gradient(90deg, var(--gold-primary), var(--gold-dark));
 }
 
 .contacts-grid {
@@ -398,7 +430,7 @@ header {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
     margin-bottom: 30px;
-    color: #e8e0d5; /* Светло-бежевый цвет */
+    color: var(--gold-primary);
     letter-spacing: 1px;
     position: relative;
     padding-bottom: 15px;
@@ -411,7 +443,7 @@ header {
     left: 0;
     width: 60px;
     height: 2px;
-    background: #8c7b6b; /* Коричневая линия */
+    background: var(--gold-primary);
 }
 
 .contacts-info ul {
@@ -447,7 +479,7 @@ header {
     text-align: center;
     padding-top: 60px;
     font-size: 0.95rem;
-    color: #c0ab8e; /* Светло-коричневый */
+    color: var(--gold-light);
     margin-top: 40px;
     position: relative;
 }
@@ -572,20 +604,21 @@ header {
 }
 
 .gallery-item {
-    flex: 1 1 calc(50% - 40px);
+    flex: 1 1 calc(50% - 30px);
     min-width: 300px;
-    max-width: 500px;
+    max-width: 550px;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
-    border: 1px solid var(--light-taupe);
+    box-shadow: 0 20px 60px var(--shadow-light);
+    border: 2px solid var(--pure-white);
     transition: all 0.5s ease;
-    background: white;
+    background: var(--pure-white);
 }
 
 .gallery-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+    transform: translateY(-15px);
+    box-shadow: 0 30px 70px var(--shadow-dark);
+    border: 2px solid var(--gold-primary);
 }
 
 .gallery-item img {
@@ -1112,24 +1145,16 @@ header {
 }
 
 .order-toggle {
-    background: linear-gradient(135deg, var(--gold), var(--dark-gold));
-    color: white;
-    border: none;
-    width: 120px;
-    height: 50px;
-    border-radius: 25px;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: 1rem;
+    background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+    color: var(--pure-white);
+    border: 2px solid var(--gold-primary);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    font-weight: 600;
     cursor: pointer;
-    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 20px;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
+    transition: all 0.4s ease;
 }
 
 .order-toggle:hover {
@@ -1138,19 +1163,9 @@ header {
 }
 
 .order-dropdown {
-    position: absolute;
-    bottom: 60px;
-    right: 0;
-    width: 300px;
-    background: white;
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(20px);
-    transition: all 0.3s ease;
-    border: 1px solid var(--light-taupe);
+    background: var(--pure-white);
+    border: 2px solid var(--gold-primary);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
 }
 
 .order-menu.active .order-dropdown {
@@ -1632,10 +1647,10 @@ header {
 .pantograph-card {
     flex: 1 1 calc(50% - 30px);
     min-width: 300px;
-    background: var(--cream);
-    padding: 40px 30px;
-    border: 1px solid var(--light-taupe);
-    box-shadow: 0 15px 40px rgba(0,0,0,0.05);
+    background: var(--pure-white);
+    padding: 50px 40px;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 20px 60px var(--shadow-light);
     transition: all 0.5s ease;
     position: relative;
     overflow: hidden;
@@ -1643,9 +1658,9 @@ header {
 }
 
 .pantograph-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-    border-color: var(--gold);
+    transform: translateY(-15px);
+    box-shadow: 0 30px 70px var(--shadow-dark);
+    border-color: var(--gold-primary);
 }
 
 .pantograph-card:before {
@@ -1655,7 +1670,7 @@ header {
     left: 0;
     width: 4px;
     height: 100%;
-    background: linear-gradient(to bottom, var(--gold), var(--dark-gold));
+    background: linear-gradient(to bottom, var(--gold-primary), var(--gold-dark));
 }
 
 .pantograph-card h3 {
@@ -1730,10 +1745,14 @@ header {
     margin-left: 15px;
 }
 
-/* Галерея продукта */
+/* Обновленные стили для галереи */
 .product-gallery {
-    margin: 80px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 60px auto;
     max-width: 1200px;
+    padding: 0 20px;
 }
 
 .gallery-row {
@@ -1741,7 +1760,7 @@ header {
     justify-content: center;
     flex-wrap: wrap;
     gap: 30px;
-    margin-bottom: 30px;
+    width: 100%;
 }
 
 .gallery-item {
@@ -1754,24 +1773,28 @@ header {
     border: 1px solid var(--light-taupe);
     transition: all 0.5s ease;
     background: white;
-}
-
-.gallery-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.15);
-    border-color: var(--gold);
+    aspect-ratio: 1 / 1.2; /* Соотношение сторон */
 }
 
 .gallery-item img {
     width: 100%;
-    height: 400px;
+    height: 100%;
     object-fit: cover;
     display: block;
     transition: transform 0.8s ease;
 }
 
-.gallery-item:hover img {
-    transform: scale(1.05);
+/* Адаптивность */
+@media (max-width: 768px) {
+    .gallery-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+        aspect-ratio: 1 / 1;
+    }
+    
+    .product-gallery {
+        padding: 0 10px;
+    }
 }
 
 /* Декоративные элементы для секции */
@@ -1814,4 +1837,57 @@ header {
     .pantograph-section .ornament {
         display: none;
     }
+}
+
+/* Стили для выбора мессенджера */
+.messenger-options {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.messenger-option {
+    position: relative;
+    cursor: pointer;
+}
+
+.messenger-option input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.messenger-icon {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid var(--border-light);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.messenger-option input:checked + .messenger-icon {
+    border-color: var(--gold-primary);
+    background-color: rgba(212, 175, 55, 0.1);
+    color: var(--gold-primary);
+}
+
+.telegram {
+    color: #0088cc;
+}
+
+.whatsapp {
+    color: #25D366;
+}
+
+.messenger-option input:checked + .telegram {
+    color: #0088cc;
+    border-color: #0088cc;
+    background-color: rgba(0, 136, 204, 0.1);
+}
+
+.messenger-option input:checked + .whatsapp {
+    color: #25D366;
+    border-color: #25D366;
+    background-color: rgba(37, 211, 102, 0.1);
 }

@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         e.target.value = formattedValue;
     });
     
+    
     // Отправка формы
     form.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -48,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const email = form.elements['email'].value.trim();
         const message = form.elements['message'].value.trim();
         const consent = form.elements['consent'].checked;
+        const messenger = form.elements['messenger'].value;
         
         if (!consent) {
             showMessage('Для отправки формы необходимо согласие на обработку данных', 'error');
@@ -65,6 +67,7 @@ document.addEventListener('DOMContentLoaded', function() {
             phone: phone,
             email: email,
             message: message,
+            messenger: messenger,
             date: new Date().toLocaleString('ru-RU'),
             page: window.location.href
         };
@@ -89,10 +92,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const chatId = '743619189';
         
         // Формируем текст сообщения
-        let messageText = `📌 Новая заявка с сайта EXXXAMPLE\n\n`;
+        let messageText = `📌 Новая заявка с сайта ma.furniture\n\n`;
         messageText += `👤 Имя: ${data.name}\n`;
         messageText += `📞 Телефон: ${data.phone}\n`;
         if (data.email) messageText += `📧 Email: ${data.email}\n`;
+        messageText += `💬 Предпочитаемый мессенджер: ${data.messenger === 'telegram' ? 'Telegram' : 'WhatsApp'}\n`;
         if (data.message) messageText += `📝 Сообщение: ${data.message}\n\n`;
         messageText += `⏰ Дата: ${data.date}\n`;
         messageText += `🌐 Страница: ${data.page}`;

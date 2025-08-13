@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eXXXample - Заказать консультацию</title>
+    <title>ma.furniture - Заказать консультацию</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="order.css">
@@ -14,7 +14,7 @@
     
     <div class="container">
         <header>
-            <a href="index.html" class="logo fade-in">eXXXample</a>
+            <a href="index.html" class="logo fade-in">ma.furniture</a>
         </header>
         
         <section class="order-section">
@@ -22,12 +22,12 @@
                 <h2 class="section-title fade-in">ЭКСКЛЮЗИВНАЯ КОНСУЛЬТАЦИЯ</h2>
                 
                 <div class="order-content fade-in">
-                    <p class="order-description">Оставьте ваши контактные данные, и наш персональный менеджер свяжется с вами в течение 24 часов для обсуждения вашего проекта.</p>
+                    <p class="order-description">Оставьте ваши контактные данные, и наш персональный менеджер свяжется с вами в течение рабочего дня для обсуждения вашего проекта.</p>
                     
                     <form id="order-form" class="order-form">
                         <div class="form-group">
                             <label for="name">Ваше имя</label>
-                            <input type="text" id="name" name="name" required placeholder="Иван Иванов">
+                            <input type="text" id="name" name="name" required placeholder="Имя Фамилия">
                         </div>
                         
                         <div class="form-group">
@@ -50,6 +50,24 @@
                             <label for="consent">Я согласен на обработку персональных данных</label>
                         </div>
                         
+                        <div class="form-group">
+                            <label>Предпочитаемый мессенджер</label>
+                            <div class="messenger-options">
+                                <label class="messenger-option">
+                                    <input type="radio" name="messenger" value="telegram" checked>
+                                    <span class="messenger-icon telegram">Telegram</span>
+                                </label>
+                                <label class="messenger-option">
+                                    <input type="radio" name="messenger" value="whatsapp">
+                                    <span class="messenger-icon whatsapp">WhatsApp</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-note">
+                            <p>Пожалуйста, указывайте реальный номер телефона и email. Наш менеджер свяжется с вами по указанному телефону, а на email будут отправлены детали заказа, подтверждения и важная информация.</p>
+                        </div>
+
                         <button type="submit" class="btn btn-submit">
                             <span class="btn-text">Отправить заявку</span>
                             <span class="btn-icon">→</span>
