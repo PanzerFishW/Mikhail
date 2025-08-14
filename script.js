@@ -241,3 +241,79 @@ document.querySelector('.btn-luxury-catalog')?.addEventListener('click', functio
     console.log('Открытие каталога товаров');
     // window.location.href = '/catalog.html';
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.review-card');
+    const dotsContainer = document.querySelector('.carousel-dots');
+    
+    // Инициализация - показываем первую карточку
+    function initCarousel() {
+        cards.forEach((card, index) => {
+            if (index === 0) {
+                card.classList.add('active');
+            } else {
+                card.classList.remove('active');
+            }
+        });
+        createDots();
+    }
+    
+    // Создаем точки навигации
+    function createDots() {
+        dotsContainer.innerHTML = '';
+        cards.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => showSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+    }
+    
+    // Показываем конкретный слайд
+    function showSlide(index) {
+        cards.forEach((card, i) => {
+            card.classList.toggle('active', i === index);
+        });
+        
+        // Обновляем точки
+        const dots = document.querySelectorAll('.dot');
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+    }
+    
+    // Инициализируем карусель
+    initCarousel();
+    
+    // Кнопки навигации
+    document.querySelector('.prev-btn')?.addEventListener('click', () => {
+        const current = document.querySelector('.review-card.active');
+        const prev = current.previousElementSibling || cards[cards.length - 1];
+        showSlide([...cards].indexOf(prev));
+    });
+    
+    document.querySelector('.next-btn')?.addEventListener('click', () => {
+        const current = document.querySelector('.review-card.active');
+        const next = current.nextElementSibling || cards[0];
+        showSlide([...cards].indexOf(next));
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const header = document.getElementById('main-header');
+    const scrollThreshold = 100;
+    
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > scrollThreshold) {
+            header.classList.add('header-scrolled');
+        } else {
+            header.classList.remove('header-scrolled');
+        }
+    });
+    
+    // Инициализация при загрузке
+    if (window.scrollY > scrollThreshold) {
+        header.classList.add('header-scrolled');
+    }
+});
