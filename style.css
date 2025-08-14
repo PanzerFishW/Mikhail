@@ -1136,49 +1136,21 @@ header {
     }
 }
 
-/* Выпадающее меню заказа */
-.order-menu {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 1000;
-}
-
-.order-toggle {
-    background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
-    color: var(--pure-white);
-    border: 2px solid var(--gold-primary);
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.5);
-    transition: all 0.4s ease;
-}
-
-.order-toggle:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
-}
-
+/* Обновленные стили для выпадающего меню */
 .order-dropdown {
+    width: 280px;
+    padding: 25px;
     background: var(--pure-white);
-    border: 2px solid var(--gold-primary);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-}
-
-.order-menu.active .order-dropdown {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+    border: 1px solid var(--border-light);
+    box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+    border-radius: 8px;
 }
 
 .order-dropdown h4 {
     font-family: 'Playfair Display', serif;
     font-size: 1.3rem;
     margin-bottom: 20px;
-    color: var(--charcoal);
+    color: var(--rich-black);
     text-align: center;
     position: relative;
     padding-bottom: 15px;
@@ -1192,7 +1164,7 @@ header {
     transform: translateX(-50%);
     width: 50px;
     height: 2px;
-    background: var(--gold);
+    background: linear-gradient(90deg, var(--gold-primary), var(--gold-dark));
 }
 
 .order-dropdown ul {
@@ -1202,7 +1174,7 @@ header {
 
 .order-dropdown ul li {
     margin-bottom: 15px;
-    border-bottom: 1px solid var(--light-taupe);
+    border-bottom: 1px solid var(--border-light);
     padding-bottom: 15px;
 }
 
@@ -1213,7 +1185,7 @@ header {
 }
 
 .order-dropdown ul li a {
-    color: var(--charcoal);
+    color: var(--rich-black);
     text-decoration: none;
     font-size: 1.05rem;
     transition: color 0.3s ease;
@@ -1222,7 +1194,7 @@ header {
 }
 
 .order-dropdown ul li a:hover {
-    color: var(--gold);
+    color: var(--gold-primary);
 }
 
 .btn-order {
@@ -1230,18 +1202,36 @@ header {
     padding: 14px;
     font-size: 1rem;
     letter-spacing: 1px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
-@media (max-width: 768px) {
-    .order-menu {
-        bottom: 20px;
-        right: 20px;
-    }
-    
-    .order-dropdown {
-        width: 280px;
-        right: -20px;
-    }
+.order-contacts {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-light);
+}
+
+.order-contacts p {
+    font-size: 0.9rem;
+    color: var(--taupe);
+    margin-bottom: 10px;
+}
+
+.order-phone {
+    display: block;
+    color: var(--rich-black);
+    font-weight: 500;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.order-phone:hover {
+    color: var(--gold-primary);
 }
 
 /* Стили для секции "О компании" */
@@ -1452,7 +1442,7 @@ header {
 }
 
 .order-toggle {
-    background: linear-gradient(135deg, var(--gold), var(--dark-gold));
+    background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
     color: white;
     border: none;
     width: 60px;
@@ -1460,7 +1450,7 @@ header {
     border-radius: 50%;
     font-weight: 500;
     cursor: pointer;
-    box-shadow: 0 5px 25px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3); /* Усиливаем тень для контраста */
     transition: all 0.4s ease;
     display: flex;
     flex-direction: column;
@@ -1469,17 +1459,41 @@ header {
     padding: 0;
     position: relative;
     overflow: hidden;
+    border: 2px solid white; /* Добавляем белую границу */
+}
+
+.order-toggle:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.2) 0%, 
+        rgba(255, 255, 255, 0.1) 50%, 
+        rgba(255, 255, 255, 0.2) 100%);
+    z-index: 1;
+}
+
+.order-icon {
+    font-size: 1.5rem;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Тень для иконки */
 }
 
 .order-text {
     font-size: 0.7rem;
     margin-top: 2px;
     opacity: 0.9;
+    z-index: 2;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2); /* Тень для текста */
 }
 
 .order-toggle:hover {
     transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.6);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    color: var(--gold-accent);
 }
 
 .order-dropdown {
@@ -1594,6 +1608,65 @@ header {
 }
 
 /* Обновленные стили для секции пантографов */
+/* Обновленные стили для галереи Deluxe */
+.pantograph-section .product-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 60px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.pantograph-section .gallery-row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    width: 100%;
+}
+
+.pantograph-section .gallery-item {
+    flex: 1 1 calc(50% - 30px);
+    min-width: 300px;
+    max-width: 500px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    border: 1px solid var(--light-taupe);
+    transition: all 0.5s ease;
+    background: white;
+    aspect-ratio: 3/4; /* Соотношение сторон для вертикальных изображений */
+    height: auto;
+}
+
+.pantograph-section .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Меняем cover на contain для полного отображения */
+    display: block;
+    transition: transform 0.8s ease;
+    background: white; /* Фон для областей без изображения */
+    padding: 15px; /* Отступы внутри контейнера */
+}
+
+/* Для мобильных устройств */
+@media (max-width: 768px) {
+    .pantograph-section .gallery-item {
+        flex: 1 1 100%;
+        max-width: 100%;
+        aspect-ratio: 3/4;
+    }
+    
+    .pantograph-section .product-gallery {
+        padding: 0 10px;
+    }
+    
+    .pantograph-section .gallery-item img {
+        padding: 10px;
+    }
+}
+
 .pantograph-section {
     padding: 80px 0;
     position: relative;
@@ -1645,16 +1718,25 @@ header {
 }
 
 .pantograph-card {
-    flex: 1 1 calc(50% - 30px);
+    flex: 1 1 100%; /* Занимает всю ширину на мобильных */
     min-width: 300px;
+    max-width: 500px; /* Ограничиваем максимальную ширину */
     background: var(--pure-white);
-    padding: 50px 40px;
+    padding: 30px;
     border: 1px solid var(--border-light);
     box-shadow: 0 20px 60px var(--shadow-light);
     transition: all 0.5s ease;
     position: relative;
     overflow: hidden;
     text-align: left;
+    margin-bottom: 30px; /* Добавляем отступ снизу */
+}
+
+@media (min-width: 768px) {
+    .pantograph-card {
+        flex: 1 1 calc(50% - 30px); /* На десктопах две карточки в ряд */
+        margin-bottom: 0;
+    }
 }
 
 .pantograph-card:hover {
@@ -1700,10 +1782,10 @@ header {
 
 .pantograph-card ul li {
     position: relative;
-    padding-left: 30px;
-    margin-bottom: 15px;
-    font-size: 1.05rem;
-    line-height: 1.7;
+    padding-left: 25px;
+    margin-bottom: 12px; /* Уменьшаем отступ между пунктами */
+    font-size: 1rem; /* Чуть уменьшаем размер шрифта */
+    line-height: 1.6;
 }
 
 .pantograph-card ul li:before {
@@ -1711,9 +1793,9 @@ header {
     position: absolute;
     left: 0;
     color: var(--gold);
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     line-height: 1;
-    top: -5px;
+    top: -3px;
 }
 
 .product-conclusion {
@@ -1743,6 +1825,26 @@ header {
 
 .product-conclusion:after {
     margin-left: 15px;
+}
+
+/* Специальные классы для вертикальных изображений */
+.vertical-img-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 133.33%; /* 4:3 соотношение для вертикальных изображений */
+    overflow: hidden;
+}
+
+.vertical-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    padding: 15px;
+    background: white;
 }
 
 /* Обновленные стили для галереи */
@@ -1890,4 +1992,40 @@ header {
     color: #25D366;
     border-color: #25D366;
     background-color: rgba(37, 211, 102, 0.1);
+}
+
+/* Стили для кнопки "Все цвета" */
+.all-colors-btn-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.btn-all-colors {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--pure-white);
+    color: var(--gold-primary);
+    border: 1px solid var(--gold-primary);
+    padding: 14px 35px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.1);
+}
+
+.btn-all-colors:hover {
+    background: var(--gold-primary);
+    color: var(--pure-white);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+}
+
+.btn-all-colors .btn-icon {
+    transition: transform 0.3s ease;
+}
+
+.btn-all-colors:hover .btn-icon {
+    transform: translateX(5px);
 }
