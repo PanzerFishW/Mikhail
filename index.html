@@ -9,9 +9,9 @@
 </head>
 <body>
     <div class="ornament ornament-1">M</div>
-    <div class="ornament ornament-2">L</div>
-    <div class="ornament ornament-3">X</div>
-    <div class="ornament ornament-4">V</div>
+    <div class="ornament ornament-2">M</div>
+    <div class="ornament ornament-3">A</div>
+    <div class="ornament ornament-4">A</div>
     
     <div class="container">
         <header id="main-header">
@@ -123,6 +123,11 @@
                             <img src="images/White_black2.jpg" alt="Черный пантограф 2">
                         </div>
                     </div>
+                    <!-- Контейнер для 3D модели -->
+                    <div class="model-container" id="deluxe-model-container">
+                        <div class="model-loading">Загрузка модели...</div>
+                    </div>
+
                     <div class="all-colors-btn-container">
                         <a href="deluxe.html" class="btn btn-all-colors">
                             <span class="btn-text">Все цвета</span>
@@ -273,26 +278,25 @@
         </div>
     </section>
 
-    <!-- Люксовые контакты -->
     <section class="contacts">
         <div class="contacts-grid">
             <div class="contacts-info fade-in">
                 <h4>НАШИ КОНТАКТЫ</h4>
                 <ul>
-                    <li><strong>Телефон:</strong> +7 (999) 123-45-67</li>
-                    <li><strong>Email:</strong> example@mail.ru</li>
-                    <li><strong>Соцсети:</strong> @example</li>
-                    <li><strong>Адрес:</strong> Москва, ул. Тверская, д. 10</li>
+                    <li><strong>Телефон:</strong> +7 (910) 005-34-24</li>
+                    <li><strong>Email:</strong> Ma.furniture@mail.ru</li>
+                    <li><strong>Соцсети:</strong> @furnitureMA</li>
+                    <li><strong>Адрес:</strong> Округ Истра, Московская область, деревня Захарово 59А</li>
                 </ul>
             </div>
             
             <div class="contacts-info fade-in delay-1">
                 <h4>VIP-СЕРВИС</h4>
                 <ul>
-                    <li><strong>Обслуживание   </strong>   24/7</li>
+                    <li><strong>Обслуживание:</strong> 24/7</li>
                     <li><strong>Подбор дизайна:</strong> Бесплатно</li>
-                    <li><strong>Доставка:</strong> "Белые перчатки"</li>
-                    <li><strong>Гарантия:</strong> Какая гарантия???</li>
+                    <li><strong>Доставка:</strong> От фабрики до конечного адреса</li>
+                    <li><strong>Гарантия:</strong> 5 лет от фабрики производителя</li>
                 </ul>
             </div>
         </div>
@@ -328,5 +332,11 @@
             </div>
         </div>
     </div>
+        <!-- Подключаем Three.js -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <!-- Подключаем OrbitControls для управления камерой -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+    <!-- Подключаем GLTFLoader для загрузки .gltf моделей -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
 </body>
 </html>

@@ -317,3 +317,100 @@ document.addEventListener('DOMContentLoaded', function() {
         header.classList.add('header-scrolled');
     }
 });
+
+// Функция для инициализации и загрузки 3D модели
+function init3DModel() {
+    const container = document.getElementById('deluxe-model-container');
+    if (!container) return; // Если контейнера нет на странице, выходим
+
+    // 1. Создаем сцену, камеру и рендерер
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0xf9f9f9); // Фон сцены, можно изменить
+
+    const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    renderer.setPixelRatio(window.devicePixelRatio); // Для четкости на Retina дисплеях
+
+    // Очищаем контейнер и добавляем рендерер
+    container.innerHTML = '';
+    container.appendChild(renderer.domElement);
+
+    // 2. Добавляем освещение (очень важно для GLTF моделей!)
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+    scene.add(ambientLight);
+
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+    directionalLight.position.set(5, 10, 7);
+    scene.add(directionalLight);
+
+    // 3. Настраиваем камеру
+    camera.position.set(3, 2, 5);
+
+    // 4. Добавляем OrbitControls
+    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true; // Плавное управление
+    controls.dampingFactor = 0.05;
+    controls.screenSpacePanning = false;
+    controls.minDistance = 2;
+    controls.maxDistance = 10;
+
+    // 5. Загружаем модель
+    const loader = new THREE.GLTFLoader();
+    
+    // ЗАМЕНИТЕ 'models/your-model.gltf' НА ПУТЬ К ВАШЕМУ ФАЙЛУ
+    loader.load(
+        'models/deluxe-pantograph.gltf',
+        function (gltf) {
+            const model = gltf.scene;
+            scene.add(model);
+
+            // Масштабируем модель до нужного размера
+            model.scale.set(0.01, 0.01, 0.01); // Начните с этого значения и регулируйте
+
+            // Центрируем модель
+            const box = new THREE.Box3().setFromObject(model);
+            const center = box.getCenter(new THREE.Vector3());
+            
+            model.position.x = -center.x;
+            model.position.y = -center.y;
+            model.position.z = -center.z;
+
+            // Настраиваем камеру на удобное расстояние
+            camera.position.set(20, 20, 30); // Ближе, чем было
+            controls.target.copy(center); // Цель управления - центр модели
+            controls.update();
+        },
+        function (xhr) {
+            // Прогресс загрузки (опционально)
+            console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+        },
+        function (error) {
+            // Обработка ошибок
+            console.error('Error loading model:', error);
+            container.innerHTML = '<div class="model-error">Не удалось загрузить модель.</div>';
+        }
+    );
+
+    // 6. Функция анимации
+    function animate() {
+        requestAnimationFrame(animate);
+        controls.update(); // Только если требуется damping
+        renderer.render(scene, camera);
+    }
+    animate();
+
+    // 7. Обработчик изменения размера окна
+    window.addEventListener('resize', function() {
+        camera.aspect = container.clientWidth / container.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.clientWidth, container.clientHeight);
+    });
+}
+
+// Запускаем инициализацию после полной загрузки страницы
+document.addEventListener('DOMContentLoaded', function() {
+    // ... ваш существующий код ...
+    
+    init3DModel(); // Инициализируем 3D модель
+});
