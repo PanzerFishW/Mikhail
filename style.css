@@ -81,6 +81,83 @@ section {
     background-color: transparent;
 }
 
+/* Добавить в начало стилей */
+.static-logo {
+    position: fixed;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1100;
+    text-align: center;
+    pointer-events: none;
+}
+
+.static-logo .logo {
+    font-family: var(--font-heading);
+    font-size: 4.5rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--deep-black);
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+    padding: 0 20px;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    pointer-events: auto;
+    text-decoration: none;
+}
+
+.static-logo .logo:after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+}
+
+/* Адаптивность для статичного логотипа */
+@media (max-width: 992px) {
+    .static-logo .logo {
+        font-size: 3.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .static-logo .logo {
+        font-size: 2.8rem;
+        letter-spacing: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    .static-logo .logo {
+        font-size: 2.2rem;
+    }
+    .static-logo {
+        top: 20px;
+    }
+}
+
+/* Обновить стили для header-initial (скрыть его) */
+.header-initial {
+    display: none !important;
+}
+
+/* Обновить отступы для main-content */
+.main-content {
+    padding-top: 150px; /* Увеличить отступ для учета статичного логотипа */
+    transition: padding-top 0.5s ease;
+    margin: 0;
+}
+
+.header-scrolled ~ .main-content {
+    padding-top: 80px; /* Уменьшить отступ при скролле */
+}
+
 .header-initial {
     padding: 0;
     text-align: center;

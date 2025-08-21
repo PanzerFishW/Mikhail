@@ -77,13 +77,18 @@ document.addEventListener('DOMContentLoaded', function() {
         window.addEventListener('scroll', function() {
             if (window.scrollY > scrollThreshold) {
                 header.classList.add('header-scrolled');
+                // Скрыть статичный логотип при скролле
+                document.querySelector('.static-logo').style.opacity = '0';
             } else {
                 header.classList.remove('header-scrolled');
+                // Показать статичный логотип
+                document.querySelector('.static-logo').style.opacity = '1';
             }
         });
         
         if (window.scrollY > scrollThreshold) {
             header.classList.add('header-scrolled');
+            document.querySelector('.static-logo').style.opacity = '0';
         }
     }
     
