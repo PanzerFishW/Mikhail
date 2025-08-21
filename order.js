@@ -1,8 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('order-form');
     const phoneInput = document.getElementById('phone');
-    
-    // Маска для телефона
+
     phoneInput.addEventListener('input', function(e) {
         let value = e.target.value.replace(/\D/g, '');
         let formattedValue = '';
@@ -30,12 +29,9 @@ document.addEventListener('DOMContentLoaded', function() {
         e.target.value = formattedValue;
     });
     
-    
-    // Отправка формы
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         
-        // Создаем сообщение, если его еще нет
         let messageEl = form.querySelector('.form-message');
         if (!messageEl) {
             messageEl = document.createElement('div');
@@ -43,7 +39,6 @@ document.addEventListener('DOMContentLoaded', function() {
             form.insertBefore(messageEl, form.firstChild);
         }
         
-        // Валидация
         const name = form.elements['name'].value.trim();
         const phone = form.elements['phone'].value.trim();
         const email = form.elements['email'].value.trim();
@@ -61,7 +56,6 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        // Собираем данные формы
         const formData = {
             name: name,
             phone: phone,
@@ -72,7 +66,6 @@ document.addEventListener('DOMContentLoaded', function() {
             page: window.location.href
         };
         
-        // Отправляем данные в Telegram бота
         sendToTelegram(formData);
     });
     
@@ -82,16 +75,13 @@ document.addEventListener('DOMContentLoaded', function() {
         messageEl.className = 'form-message ' + type;
         messageEl.style.display = 'block';
         
-        // Прокрутка к сообщению
         messageEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
     
     function sendToTelegram(data) {
-        // Здесь нужно указать токен вашего бота и ID чата
         const botToken = '8338005607:AAEuq0pATs-bk0I4qsLptVyN-VBKBm8zIBo';
         const chatId = '743619189';
         
-        // Формируем текст сообщения
         let messageText = `📌 Новая заявка с сайта ma.furniture\n\n`;
         messageText += `👤 Имя: ${data.name}\n`;
         messageText += `📞 Телефон: ${data.phone}\n`;
@@ -101,19 +91,14 @@ document.addEventListener('DOMContentLoaded', function() {
         messageText += `⏰ Дата: ${data.date}\n`;
         messageText += `🌐 Страница: ${data.page}`;
         
-        // Кодируем текст для URL
         const encodedText = encodeURIComponent(messageText);
-        
-        // Формируем URL для запроса
         const url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodedText}`;
         
-        // Показываем индикатор загрузки
         const submitBtn = form.querySelector('.btn-submit');
         const originalText = submitBtn.innerHTML;
         submitBtn.innerHTML = '<span class="btn-text">Отправка...</span>';
         submitBtn.disabled = true;
         
-        // Отправляем запрос
         fetch(url)
             .then(response => response.json())
             .then(response => {
@@ -135,3 +120,4 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
 });
+

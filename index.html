@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ma.furniture - Роскошная мебель на заказ</title>
-    <link href="https://fonts.cdnfonts.com/css/comorant-sc" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/comorant-sc" rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="ornament ornament-1">M</div>
-    <div class="ornament ornament-2">M</div>
-    <div class="ornament ornament-3">A</div>
-    <div class="ornament ornament-4">A</div>
+    <!-- Убраны плавающие буквы -->
+    <div class="background-elements">
+        <div class="bg-element bg-element-1"></div>
+        <div class="bg-element bg-element-2"></div>
+        <div class="bg-element bg-element-3"></div>
+        <div class="bg-element bg-element-4"></div>
+    </div>
+    
     
     <div class="container">
         <header id="main-header">
@@ -22,7 +26,7 @@
                 <div class="container">
                     <div class="header-content">
                         <div class="header-logo">
-                            <img src="images/example.png" alt="MA Furniture Logo" class="logo-img">
+                            <img src="images/example.png" alt="MA Furniture Logo" class="logo-img" loading="lazy">
                             <span class="logo-text">MA Furniture</span>
                         </div>
                         <nav class="header-nav">
@@ -110,23 +114,27 @@
                 <div class="product-gallery fade-in">
                     <div class="gallery-row">
                         <div class="gallery-item fade-in">
-                            <img src="images/Wardrobe_black2.jpg" alt="Белый пантограф 1">
+                            <img src="images/Wardrobe_black2.jpg" alt="Белый пантограф 1" loading="lazy">
                         </div>
                         <div class="gallery-item fade-in delay-1">
-                            <img src="images/Wardrobe_black (2).jpg" alt="Белый пантограф 2">
+                            <img src="images/Wardrobe_black (2).jpg" alt="Белый пантограф 2" loading="lazy">
                         </div>
                     </div>
                     <div class="gallery-row">
                         <div class="gallery-item fade-in">
-                            <img src="images/Wardrobe_black (3).jpg" alt="Черный пантограф 1">
+                            <img src="images/Wardrobe_black (3).jpg" alt="Черный пантограф 1" loading="lazy">
                         </div>
                         <div class="gallery-item fade-in delay-1">
-                            <img src="images/White_black2.jpg" alt="Черный пантограф 2">
+                            <img src="images/White_black2.jpg" alt="Черный пантограф 2" loading="lazy">
                         </div>
                     </div>
-                    <!-- Контейнер для 3D модели -->
                     <div class="model-container" id="deluxe-model-container">
                         <div class="model-loading">Загрузка модели...</div>
+                        <!-- Добавьте этот див -->
+                        <div class="model-hint">
+                            <span>▲</span>
+                            <p>Вращайте, чтобы осмотреть</p>
+                        </div>
                     </div>
 
                     <div class="all-colors-btn-container">
@@ -175,18 +183,18 @@
                 <div class="product-gallery fade-in">
                     <div class="gallery-row">
                         <div class="gallery-item fade-in">
-                            <img src="images/example.png" alt="Basic пантограф 1">
+                            <img src="images/example.png" alt="Basic пантограф 1" loading="lazy">
                         </div>
                         <div class="gallery-item fade-in delay-1">
-                            <img src="images/example.png" alt="Basic пантограф 2">
+                            <img src="images/example.png" alt="Basic пантограф 2" loading="lazy">
                         </div>
                     </div>
                     <div class="gallery-row">
                         <div class="gallery-item fade-in delay-2">
-                            <img src="images/example.png" alt="Basic пантограф 3">
+                            <img src="images/example.png" alt="Basic пантограф 3" loading="lazy">
                         </div>
                         <div class="gallery-item fade-in delay-1">
-                            <img src="images/example.png" alt="Basic пантограф 4">
+                            <img src="images/example.png" alt="Basic пантограф 4" loading="lazy">
                         </div>
                     </div>
                     <div class="all-colors-btn-container">
@@ -216,7 +224,114 @@
             </div>
         </section>
         
-        <!-- Люксовый FAQ -->
+        <section class="reviews-section" id="reviews">
+            <div class="container">
+                <h2 class="section-title fade-in">ОТЗЫВЫ НАШИХ КЛИЕНТОВ</h2>
+                
+                <div class="reviews-container">
+                    <!-- Навигация для отзывов -->
+                    <div class="reviews-nav">
+                        <button class="nav-btn prev-btn" aria-label="Предыдущий отзыв">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        
+                        <div class="reviews-pagination">
+                            <span class="current-review">1</span>
+                            <span class="pagination-divider">/</span>
+                            <span class="total-reviews">3</span>
+                        </div>
+                        
+                        <button class="nav-btn next-btn" aria-label="Следующий отзыв">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <!-- Контейнер для отзывов -->
+                    <div class="reviews-track">
+                        <div class="review-card active">
+                            <div class="review-header">
+                                <div class="review-author-info">
+                                    <div class="review-author">Анна К.</div>
+                                    <div class="review-date">15 мая 2025</div>
+                                </div>
+                                <div class="review-rating">★★★★★</div>
+                            </div>
+                            
+                            <div class="review-content">
+                                <p>Заказывала гардеробную систему в бежевых тонах. Результат превзошел все ожидания! Качество материалов и исполнения на высочайшем уровне. Особенно впечатлила точность механизмов и внимание к деталям.</p>
+                            </div>
+                            
+                            <div class="review-image full-display">
+                                <img src="images/review1.jpg" alt="Отзыв Анны К." loading="lazy">
+                            </div>
+                            
+                            <div class="review-product-info">
+                                <span class="product-tag">Пантограф Deluxe</span>
+                                <span class="product-color">Цвет: Бежевый</span>
+                            </div>
+                        </div>
+                        
+                        <div class="review-card">
+                            <div class="review-header">
+                                <div class="review-author-info">
+                                    <div class="review-author">Дмитрий С.</div>
+                                    <div class="review-date">3 апреля 2025</div>
+                                </div>
+                                <div class="review-rating">★★★★★</div>
+                            </div>
+                            
+                            <div class="review-content">
+                                <p>Работал с многими мебельными компаниями, но такой уровень сервиса встретил впервые. Персональный менеджер сопровождал на всех этапах. Установка прошла быстро и профессионально. Рекомендую!</p>
+                            </div>
+                            
+                            <div class="review-image full-display">
+                                <img src="images/review2.jpg" alt="Отзыв Дмитрия С." loading="lazy">
+                            </div>
+                            
+                            <div class="review-product-info">
+                                <span class="product-tag">Пантограф Basic</span>
+                                <span class="product-color">Цвет: Графитовый</span>
+                            </div>
+                        </div>
+                        
+                        <div class="review-card">
+                            <div class="review-header">
+                                <div class="review-author-info">
+                                    <div class="review-author">Елена В.</div>
+                                    <div class="review-date">22 марта 2025</div>
+                                </div>
+                                <div class="review-rating">★★★★☆</div>
+                            </div>
+                            
+                            <div class="review-content">
+                                <p>Очень довольна качеством вешалок для гардероба. Единственное - сроки изготовления немного затянулись, но результат того стоил. Механизм работает бесшумно, выглядит стильно и дорого.</p>
+                            </div>
+                            
+                            <div class="review-image full-display">
+                                <img src="images/review3.jpg" alt="Отзыв Елены В." loading="lazy">
+                            </div>
+                            
+                            <div class="review-product-info">
+                                <span class="product-tag">Пантограф Deluxe</span>
+                                <span class="product-color">Цвет: Белый глянец</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Индикаторы для мобильной версии -->
+                    <div class="reviews-indicators">
+                        <button class="indicator active" aria-label="Показать отзыв 1"></button>
+                        <button class="indicator" aria-label="Показать отзыв 2"></button>
+                        <button class="indicator" aria-label="Показать отзыв 3"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section>
             <h2 class="section-title fade-in delay-1">ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ</h2>
             
@@ -263,83 +378,39 @@
         </section>
     </div>
     
-    <!-- Обновленная секция отзывов -->
-    <section class="reviews-section">
-        <div class="container">
-            <h2 class="section-title fade-in">ОТЗЫВЫ НАШИХ КЛИЕНТОВ</h2>
-            
-            <div class="reviews-track">
-                <div class="review-card active">
-                    <div class="review-header">
-                        <div class="review-author">Анна К.</div>
-                        <div class="review-rating">★★★★★</div>
-                    </div>
-                    <div class="review-content">
-                        <p>Заказывала гардеробную систему в бежевых тонах. Результат превзошел все ожидания! Качество материалов и исполнения на высочайшем уровне.</p>
-                    </div>
-                    <div class="review-image">
-                        <img src="images/review1.jpg" alt="Отзыв Анны К.">
-                    </div>
-                    <div class="review-date">15 мая 2025</div>
-                </div>
-                
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-author">Дмитрий С.</div>
-                        <div class="review-rating">★★★★★</div>
-                    </div>
-                    <div class="review-content">
-                        <p>Работал с многими мебельными компаниями, но такой уровень сервиса встретил впервые. Персональный менеджер сопровождал на всех этапах.</p>
-                    </div>
-                    <div class="review-date">3 апреля 2025</div>
-                </div>
-                
-                <div class="review-card">
-                    <div class="review-header">
-                        <div class="review-author">Елена В.</div>
-                        <div class="review-rating">★★★★☆</div>
-                    </div>
-                    <div class="review-content">
-                        <p>Очень довольна качеством вешалок для гардероба. Единственное - сроки изготовления немного затянулись, но результат того стоил.</p>
-                    </div>
-                    <div class="review-image">
-                        <img src="images/review3.jpg" alt="Отзыв Елены В.">
-                    </div>
-                    <div class="review-date">22 марта 2025</div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="contacts">
-        <div class="contacts-grid">
-            <div class="contacts-info fade-in">
-                <h4>НАШИ КОНТАКТЫ</h4>
-                <ul>
-                    <li><strong>Телефон:</strong> +7 (910) 005-34-24</li>
-                    <li><strong>Email:</strong> Ma.furniture@mail.ru</li>
-                    <li><strong>Соцсети:</strong> @furnitureMA</li>
-                    <li><strong>Адрес:</strong> Округ Истра, Московская область, деревня Захарово 59А</li>
-                </ul>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <h4>НАШИ КОНТАКТЫ</h4>
+                    <ul>
+                        <li><strong>Телефон:</strong> +7 (910) 005-34-24</li>
+                        <li><strong>Email:</strong> Ma.furniture@mail.ru</li>
+                        <li><strong>Соцсети:</strong> @furnitureMA</li>
+                        <li><strong>Адрес:</strong> Округ Истра, Московская область, деревня Захарово 59А</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-info">
+                    <h4>VIP-СЕРВИС</h4>
+                    <ul>
+                        <li><strong>Обслуживание:</strong> 24/7</li>
+                        <li><strong>Подбор дизайна:</strong> Бесплатно</li>
+                        <li><strong>Доставка:</strong> От фабрики до конечного адреса</li>
+                        <li><strong>Гарантия:</strong> 5 лет от фабрики производителя</li>
+                    </ul>
+                </div>
             </div>
             
-            <div class="contacts-info fade-in delay-1">
-                <h4>VIP-СЕРВИС</h4>
-                <ul>
-                    <li><strong>Обслуживание:</strong> 24/7</li>
-                    <li><strong>Подбор дизайна:</strong> Бесплатно</li>
-                    <li><strong>Доставка:</strong> От фабрики до конечного адреса</li>
-                    <li><strong>Гарантия:</strong> 5 лет от фабрики производителя</li>
-                </ul>
+            <div class="copyright">
+                Copyright © 2025 ma.furniture. Все права защищены.
             </div>
         </div>
-        
-        <div class="copyright fade-in delay-2">
-            Copyright © 2025 ma.furniture. Все права защищены.
-        </div>
-    </section>
+    </footer>
     
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 
     <div class="order-menu">
         <button class="order-toggle">
@@ -365,11 +436,8 @@
             </div>
         </div>
     </div>
-        <!-- Подключаем Three.js -->
     <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
-    <!-- Подключаем OrbitControls для управления камерой -->
     <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
-    <!-- Подключаем GLTFLoader для загрузки .gltf моделей -->
     <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
 </body>
 </html>
