@@ -9,80 +9,107 @@
     <link rel="stylesheet" href="order.css">
 </head>
 <body>
-    <div class="ornament ornament-1">M</div>
-    <div class="ornament ornament-2">L</div>
+    <!-- Статичный логотип в самом верху body -->
+    <div class="static-logo">
+        <a href="index.html" class="logo fade-in">ma furniture</a>
+    </div>
+    
     
     <div class="container">
-        <header>
-            <a href="index.html" class="logo fade-in">ma furniture</a>
-        </header>
-        
-        <section class="order-section">
-            <div class="order-container">
-                <h2 class="section-title fade-in">ЭКСКЛЮЗИВНАЯ КОНСУЛЬТАЦИЯ</h2>
-                
-                <div class="order-content fade-in">
-                    <p class="order-description">Оставьте ваши контактные данные, и наш персональный менеджер свяжется с вами в течение рабочего дня для обсуждения вашего проекта.</p>
-                    
-                    <form id="order-form" class="order-form">
-                        <div class="form-group">
-                            <label for="name">Ваше имя</label>
-                            <input type="text" id="name" name="name" required placeholder="Имя Фамилия">
+        <header id="main-header">
+            <div class="header-initial" style="display: none;">
+                <a href="index.html" class="logo fade-in">ma furniture</a>
+            </div>
+            <div class="header-expanded">
+                <div class="container">
+                    <div class="header-content">
+                        <div class="header-logo">
+                            <img src="images/example.png" alt="MA Furniture Logo" class="logo-img" loading="lazy">
+                            <span class="logo-text">MA Furniture</span>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Телефон</label>
-                            <input type="tel" id="phone" name="phone" required placeholder="+7 (999) 123-45-67">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" placeholder="example@mail.ru">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Дополнительная информация</label>
-                            <textarea id="message" name="message" rows="4" placeholder="Расскажите о вашем проекте, предпочтениях и сроках"></textarea>
-                        </div>
-                        
-                        <div class="form-group checkbox-group">
-                            <input type="checkbox" id="consent" name="consent" required>
-                            <label for="consent">Я согласен на обработку персональных данных</label>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label>Предпочитаемый мессенджер</label>
-                            <div class="messenger-options">
-                                <label class="messenger-option">
-                                    <input type="radio" name="messenger" value="telegram" checked>
-                                    <span class="messenger-icon telegram">Telegram</span>
-                                </label>
-                                <label class="messenger-option">
-                                    <input type="radio" name="messenger" value="whatsapp">
-                                    <span class="messenger-icon whatsapp">WhatsApp</span>
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <div class="form-note">
-                            <p>Пожалуйста, указывайте реальный номер телефона и email. Наш менеджер свяжется с вами по указанному телефону, а на email будут отправлены детали заказа, подтверждения и важная информация.</p>
-                        </div>
-
-                        <button type="submit" class="btn btn-submit">
-                            <span class="btn-text">Отправить заявку</span>
-                            <span class="btn-icon">→</span>
-                        </button>
-                    </form>
-                </div>
-                
-                <div class="order-contacts fade-in delay-1">
-                    <h3>ИЛИ СВЯЖИТЕСЬ С НАМИ ПРЯМО СЕЙЧАС</h3>
-                    <div class="divider-gold"></div>
-                    <a href="tel:+79991234567" class="contact-phone">+7 (999) 123-45-67</a>
-                    <p class="contact-hours">Доступны с 10:00 до 20:00 ежедневно</p>
+                        <nav class="header-nav">
+                            <ul>
+                                <li><a href="index.html#about">О компании</a></li>
+                                <li><a href="index.html#pantograph">Каталог</a></li>
+                                <li><a href="index.html#reviews">Отзывы</a></li>
+                                <li><a href="index.html#faq">FAQ</a></li>
+                                <li><a href="index.html#contacts">Контакты</a></li>
+                            </ul>
+                        </nav>
+                        <a href="order.html" class="btn btn-header">Оставить заявку</a>
+                    </div>
                 </div>
             </div>
-        </section>
+        </header>
+        
+        <div class="main-content">
+            <section class="order-section">
+                <div class="order-container">
+                    <h2 class="section-title fade-in">ЭКСКЛЮЗИВНАЯ КОНСУЛЬТАЦИЯ</h2>
+                    
+                    <div class="order-content fade-in">
+                        <p class="order-description">Оставьте ваши контактные данные, и наш персональный менеджер свяжется с вами в течение рабочего дня для обсуждения вашего проекта.</p>
+                        
+                        <form id="order-form" class="order-form">
+                            <div class="form-group">
+                                <label for="name">Ваше имя</label>
+                                <input type="text" id="name" name="name" required placeholder="Имя Фамилия">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="phone">Телефон</label>
+                                <input type="tel" id="phone" name="phone" required placeholder="+7 (999) 123-45-67">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="example@mail.ru">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Дополнительная информация</label>
+                                <textarea id="message" name="message" rows="4" placeholder="Расскажите о вашем проекте, предпочтениях и сроках"></textarea>
+                            </div>
+                            
+                            <div class="form-group checkbox-group">
+                                <input type="checkbox" id="consent" name="consent" required>
+                                <label for="consent">Я согласен на обработку персональных данных</label>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Предпочитаемый мессенджер</label>
+                                <div class="messenger-options">
+                                    <label class="messenger-option">
+                                        <input type="radio" name="messenger" value="telegram" checked>
+                                        <span class="messenger-icon telegram">Telegram</span>
+                                    </label>
+                                    <label class="messenger-option">
+                                        <input type="radio" name="messenger" value="whatsapp">
+                                        <span class="messenger-icon whatsapp">WhatsApp</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-note">
+                                <p>Пожалуйста, указывайте реальный номер телефона и email. Наш менеджер свяжется с вами по указанному телефону, а на email будут отправлены детали заказа, подтверждения и важная информация.</p>
+                            </div>
+
+                            <button type="submit" class="btn btn-submit">
+                                <span class="btn-text">Отправить заявку</span>
+                                <span class="btn-icon">→</span>
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="order-contacts fade-in delay-1">
+                        <h3>ИЛИ СВЯЖИТЕСЬ С НАМИ ПРЯМО СЕЙЧАС</h3>
+                        <div class="divider-gold"></div>
+                        <a href="tel:+79100053424" class="contact-phone">+7 (910) 005-34-24</a>
+                        <p class="contact-hours">Доступны с 10:00 до 20:00 ежедневно</p>
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
     
     <script src="order.js"></script>

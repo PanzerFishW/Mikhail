@@ -2,6 +2,41 @@ let scrollTimeout;
 let resizeTimeout;
 
 document.addEventListener('DOMContentLoaded', function() {
+
+    document.querySelectorAll('a[href^="#"], a[href^="index.html#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const href = this.getAttribute('href');
+            let targetId;
+            
+            // Обрабатываем обе формы ссылок: #anchor и index.html#anchor
+            if (href.includes('#')) {
+                targetId = href.split('#')[1];
+            } else {
+                targetId = href;
+            }
+            
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                // Если мы на странице заказа, переходим на главную
+                if (window.location.pathname.includes('order.html') && href.includes('index.html')) {
+                    window.location.href = href;
+                    return;
+                }
+                
+                // Плавная прокрутка
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                
+                // Обновляем URL без перезагрузки страницы
+                history.pushState(null, null, '#' + targetId);
+            }
+        });
+    });
     const fadeElements = document.querySelectorAll('.fade-in');
     
     const observer = new IntersectionObserver((entries) => {

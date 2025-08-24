@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function sendToTelegram(data) {
-        const botToken = '8338005607:AAEuq0pATs-bk0I4qsLptVyN-VBKBm8zIBo';
+        const botToken = '8234810199:AAHkAoOPzKdRJXUOoZy5d7UW2eUbVCaywAU';
         const chatId = '743619189';
         
         let messageText = `📌 Новая заявка с сайта ma.furniture\n\n`;
