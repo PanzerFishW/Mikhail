@@ -243,9 +243,15 @@ function initBasicModel() {
     const container = document.getElementById('basic-model-container');
     if (!container) return;
 
-    // Создаем элемент подсказки
-    const hintElement = container.querySelector('.model-hint');
+    // Удаляем плейсхолдер и создаем рендерер
+    container.innerHTML = '';
     
+    // Создаем элемент подсказки
+    const hintElement = document.createElement('div');
+    hintElement.className = 'model-hint';
+    hintElement.innerHTML = '<span>▲</span><p>Вращайте, чтобы осмотреть</p>';
+    container.appendChild(hintElement);
+
     const scene = new THREE.Scene();
     scene.background = new THREE.Color(0xf9f9f9);
 
@@ -254,10 +260,6 @@ function initBasicModel() {
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-    // Очищаем контейнер и добавляем рендерер
-    const loadingElement = container.querySelector('.model-loading');
-    if (loadingElement) loadingElement.remove();
-    
     container.appendChild(renderer.domElement);
 
     // Основное освещение
@@ -302,6 +304,20 @@ function initBasicModel() {
         window.removeEventListener('keydown', hideHintOnKeyPress);
     }
     
+    function loadBasicModel() {
+    const container = document.getElementById('basic-model-container');
+    if (container) {
+        container.querySelector('.model-loading').style.display = 'none';
+        initBasicModel();
+    }}
+
+    function loadDeluxeModel() {
+    const container = document.getElementById('deluxe-model-container');
+    if (container) {
+        container.querySelector('.model-placeholder').style.display = 'none';
+        init3DModel();
+    }}
+
     // Дополнительная функция для скрытия при нажатии клавиш
     function hideHintOnKeyPress(e) {
         if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', ' ', 'Escape'].includes(e.key)) {
