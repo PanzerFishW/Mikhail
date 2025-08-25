@@ -482,3 +482,43 @@ document.addEventListener('DOMContentLoaded', function() {
     initReviews();
     initBasicModel();
 });
+
+function initFAQ() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Закрываем все элементы
+            faqItems.forEach(otherItem => {
+                otherItem.classList.remove('active');
+                otherItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+            });
+            
+            // Открываем текущий, если он был закрыт
+            if (!isActive) {
+                item.classList.add('active');
+                question.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+    
+    // Добавляем обработчики для клавиатуры
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            faqItems.forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+            });
+        }
+    });
+}
+
+// Инициализация при загрузке DOM
+document.addEventListener('DOMContentLoaded', function() {
+    initFAQ();
+});
