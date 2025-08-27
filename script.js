@@ -522,3 +522,70 @@ function initFAQ() {
 document.addEventListener('DOMContentLoaded', function() {
     initFAQ();
 });
+
+function initCookieBanner() {
+    const cookieBanner = document.getElementById('cookieBanner');
+    const acceptCookies = document.getElementById('acceptCookies');
+    const rejectCookies = document.getElementById('rejectCookies');
+    const cookieSettings = document.getElementById('cookieSettings');
+
+    // Проверяем, было ли уже принято решение по cookies
+    const cookiesAccepted = localStorage.getItem('cookiesAccepted');
+    const cookiesRejected = localStorage.getItem('cookiesRejected');
+
+    if (!cookiesAccepted && !cookiesRejected) {
+        // Показываем баннер только если решение еще не принято
+        setTimeout(() => {
+            cookieBanner.classList.add('active');
+        }, 2000); // Появляется через 2 секунды после загрузки страницы
+    }
+
+    // Обработчик принятия cookies
+    acceptCookies.addEventListener('click', () => {
+        localStorage.setItem('cookiesAccepted', 'true');
+        localStorage.setItem('cookiesRejected', 'false');
+        cookieBanner.classList.remove('active');
+        
+        // Здесь можно добавить инициализацию аналитики и других сервисов
+        initAnalytics();
+    });
+
+    // Обработчик отклонения cookies
+    rejectCookies.addEventListener('click', () => {
+        localStorage.setItem('cookiesAccepted', 'false');
+        localStorage.setItem('cookiesRejected', 'true');
+        cookieBanner.classList.remove('active');
+    });
+
+    // Обработчик настроек (можно расширить функционал)
+    cookieSettings.addEventListener('click', () => {
+        alert('Настройки cookies будут доступны в следующем обновлении.');
+    });
+
+    // Функция для инициализации аналитики (заглушка)
+    function initAnalytics() {
+        console.log('Analytics initialized - cookies accepted');
+        // Здесь будет код для инициализации Google Analytics, Yandex.Metrica и т.д.
+    }
+
+    // Проверяем статус cookies при загрузке
+    if (cookiesAccepted === 'true') {
+        initAnalytics();
+    }
+}
+
+// Инициализация при загрузке страницы
+document.addEventListener('DOMContentLoaded', function() {
+    initCookieBanner();
+});
+
+// Функция для проверки принятия cookies (можно использовать в других местах)
+function areCookiesAccepted() {
+    return localStorage.getItem('cookiesAccepted') === 'true';
+}
+
+// Функция для принудительного показа баннера (для тестирования)
+function showCookieBanner() {
+    const cookieBanner = document.getElementById('cookieBanner');
+    cookieBanner.classList.add('active');
+}
