@@ -2811,3 +2811,64 @@ html, body {
 :root {
     --vh: 1vh;
 }
+
+@media (max-width: 768px) {
+    .gallery-row {
+        flex-direction: row !important;
+        flex-wrap: wrap;
+    }
+    
+    .gallery-item {
+        flex: 1 1 calc(50% - 15px) !important;
+        min-width: calc(50% - 15px) !important;
+        margin-bottom: 15px;
+    }
+}
+
+/* Для карточек характеристик и функционала */
+@media (max-width: 768px) {
+    .features-row {
+        flex-direction: row !important;
+        flex-wrap: wrap;
+    }
+    
+    .pantograph-card {
+        flex: 1 1 calc(50% - 15px) !important;
+        min-width: calc(50% - 15px) !important;
+        margin-bottom: 20px;
+    }
+}
+
+/* Убедимся, что контент не выходит за пределы экрана */
+@media (max-width: 576px) {
+    .gallery-item {
+        flex: 1 1 calc(50% - 10px) !important;
+        min-width: calc(50% - 10px) !important;
+    }
+    
+    .pantograph-card {
+        flex: 1 1 calc(50% - 10px) !important;
+        min-width: calc(50% - 10px) !important;
+        padding: 15px;
+    }
+    
+    .pantograph-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+    }
+    
+    .pantograph-card ul li {
+        font-size: 0.85rem;
+        padding-left: 18px;
+        margin-bottom: 8px;
+    }
+}
+
+/* Для очень маленьких экранов можно оставить одну колонку */
+@media (max-width: 400px) {
+    .gallery-item,
+    .pantograph-card {
+        flex: 1 1 100% !important;
+        min-width: 100% !important;
+    }
+}
