@@ -589,3 +589,24 @@ function showCookieBanner() {
     const cookieBanner = document.getElementById('cookieBanner');
     cookieBanner.classList.add('active');
 }
+
+function optimizeForMobile() {
+    // Отключаем ненужные анимации на слабых устройствах
+    if (navigator.hardwareConcurrency && navigator.hardwareConcurrency <= 2) {
+        document.documentElement.classList.add('reduced-motion');
+    }
+    
+    // Исправление высоты на мобильных устройствах
+    function setVH() {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+    
+    setVH();
+    window.addEventListener('resize', setVH);
+}
+
+// Вызов при загрузке
+document.addEventListener('DOMContentLoaded', function() {
+    optimizeForMobile();
+});
