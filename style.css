@@ -1801,9 +1801,6 @@ section {
         gap: 20px;
     }
     
-    .pantograph-card {
-        min-width: 280px;
-    }
     
     .gallery-item {
         flex: 1 1 calc(50% - 20px);
@@ -1849,10 +1846,6 @@ section {
         gap: 20px;
     }
     
-    .pantograph-card {
-        min-width: 100%;
-        margin-bottom: 20px;
-    }
     
     .gallery-row {
         gap: 20px;
@@ -2185,9 +2178,6 @@ section {
         padding-left: 20px;
     }
     
-    .pantograph-card {
-        padding: 15px;
-    }
     
     .model-container {
         height: 200px;
@@ -2607,11 +2597,6 @@ html, body {
     .feature-item {
         width: 100%;
         max-width: 300px;
-        margin-bottom: 20px;
-    }
-    
-    .pantograph-card {
-        min-width: 100%;
         margin-bottom: 20px;
     }
     
