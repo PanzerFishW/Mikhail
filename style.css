@@ -2610,10 +2610,6 @@ html, body {
         margin-bottom: 20px;
     }
     
-    .features-row {
-        flex-direction: column;
-    }
-    
     .pantograph-card {
         min-width: 100%;
         margin-bottom: 20px;
