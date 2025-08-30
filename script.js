@@ -610,3 +610,13 @@ function optimizeForMobile() {
 document.addEventListener('DOMContentLoaded', function() {
     optimizeForMobile();
 });
+
+function sanitizeInput(input) {
+    return input.replace(/[<>]/g, '').trim();
+}
+
+// Проверка email
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
